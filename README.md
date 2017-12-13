@@ -9,3 +9,13 @@ This is the back-end cloud service of [avr-pizza](https://github.com/noopkat/avr
 :pizza: :pizza: :pizza:
 
 (installation instructions to come soon, if you're feeling brave)
+
+## Docker
+
+Build docker image
+
+    $ docker build -t avr-pizza-service .
+
+Start container
+
+    $ docker run -p 3000:3000 -d avr-pizza-service
