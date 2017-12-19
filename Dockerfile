@@ -18,6 +18,10 @@ RUN mkdir bin && mkdir bin/builder && mkdir bin/builder/arduino \
   && ln -s /usr/local/share/arduino-${ARDUINO_IDE_VERSION}/tools-builder /app/bin/builder/arduino/ \
   && ln -s /usr/local/share/arduino-${ARDUINO_IDE_VERSION}/arduino-builder /app/bin/builder/arduino/
 
+RUN mkdir bin/download && mkdir bin/download/arduino && mkdir bin/download/arduino/libraries \
+  && curl -sL https://github.com/pololu/zumo-32u4-arduino-library/archive/1.1.4.tar.gz | tar -zx -C /usr/local/share \
+  && mv /usr/local/share/zumo-32u4-arduino-library-1.1.4 bin/download/arduino/libraries/Zumo32U4
+
 RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
 
 RUN apt-get install -y \
